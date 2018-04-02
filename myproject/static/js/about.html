@@ -1,0 +1,268 @@
+﻿{% extends "base.html" %}
+
+
+
+{% load staticfiles %}
+
+
+ {% block content %}
+
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block style %} 
+    <link rel='stylesheet prefetch' href='https://cdn.jsdelivr.net/foundation/5.5.0/css/foundation.css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/G_style.css' %}" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'scss/style.scss' %}" />
+     
+    {% endblock style %}
+
+  
+</head>
+
+<body>
+  <main data-equalizer>
+  <section id="left-side" class="lg-4 md-5 sm-12 left" data-equalizer-watch>
+        
+
+      <div class="container">
+    <div class="row">
+      <div class="col-md-4 ">
+        <div class="thumbnail">
+          <img src="{% static 'img/perfil.png'%}" />
+         </div>
+      </div>
+       
+     </div><!-- End Row Div --> 
+
+
+</div><!-- End Container Div --> 
+    
+      
+        
+    
+    <h2 class="name">Luiz Carlos <strong>Gili</strong></h2>
+    <h3 class="job-titles">
+     Mr. em Engenharia Elétrica
+     </h3>
+    <section class="icon-title">
+      <div class="hexagon-icon">
+        <i class="fa fa-file-text"></i>
+      </div>
+      <h3>Perfil</h3>
+    </section>
+    <section class="info-content">
+      <p>
+        Possui graduação (2014) e mestrado (2016) em Engenharia Elétrica pela Universidade Regional de Blumenau. 
+          Atualmente faz doutorado em Engenharia Elétrica na Universidade Federal de Santa Catarina (UFSC).
+           Tem experiência na área de eletrônica digital , integração hardware/software, e eletrônica de potência. Possui interesse em conversores matriciais e multiníveis.
+      </p>
+    </section>
+    <section class="icon-title toggle-title">
+      <div class="hexagon-icon">
+        <i class="fa fa-user"></i>
+      </div>
+      <h3>Contacto</h3>
+      <a href="javascript:void(0)" class="do-toggle"><i class="fa fa-chevron-down"></i></a>
+    </section>
+    <section class="info-content">
+      <ul class="list-icons">
+        <li>
+          <div class="hexagon-icon-fill-small">
+            <i class="fa fa-map-marker"></i>
+          </div>
+          <p> Florianópolis
+          </p>
+        </li>
+        <li>
+          <div class="hexagon-icon-fill-small">
+            <i class="fa fa-phone"></i>
+          </div>
+          <p>
+            <a href="tel:55544512">(48) 99850-3758 <br/>
+             </a>
+          </p>
+        </li>
+        <li>
+          <div class="hexagon-icon-fill-small">
+            <i class="fa fa-envelope"></i>
+          </div>
+          <p> <a href="mailto:luizcarlosgili@gmail.com?subject=Me Interresado em me contatar">luizcarlosgili@gmail.com</a>
+          </p>
+        </li>
+        
+        <li>
+          <div class="hexagon-icon-fill-small">
+            <i class="fa fa-linkedin-square"></i>
+          </div>
+          <p> <a href="https://www.linkedin.com/in/luiz-carlos-gili-11b86230?trk=hp-identity-name">LinkedIn</a>
+          </p>
+        </li>
+        <li>
+          <div class="hexagon-icon-fill-small">
+            <i class="fa fa-skype"></i>
+          </div>
+          <p> <a href="skype:luiz Carlos Gili.?chat">Luiz Carlos Gili.</a>
+          </p>
+        </li>
+      </ul>
+    </section>
+    <section class="icon-title toggle-title">
+      <div class="hexagon-icon">
+        <i class="fa fa-code"></i>
+      </div>
+      <h3>Habilidades com Hardware</h3><a href="javascript:void(0)" class="do-toggle"><i class="fa fa-chevron-down"></i></a>
+    </section>
+    <section class="info-content">
+      <ul class="list-skills">
+        <li>Conversores CC-CC</li>
+        <li>Conversores CC-CA-CC</li>
+        <li>Conversores CA-CA</li>
+        <li>Conversores Matriciais</li>
+        <li>Conversores Multiniveis</li>
+        <li>Geração de energia eólica</li>
+        <li>Geração de energia fotovoltaica</li>
+        <li>Controle</li>
+         </ul>
+    </section>
+    <section class="icon-title toggle-title">
+      <div class="hexagon-icon">
+        <i class="fa fa-code-fork"></i>
+      </div>
+      <h3>Habilidades em programação e softwares de simulação</h3>
+      <a href="javascript:void(0)" class="do-toggle"><i class="fa fa-chevron-down"></i></a>
+    </section>
+    <section class="info-content">
+      <ul class="list-skills">
+        <li>C</li>
+        <li>VHDL</li>
+        <li>Verilog</li>
+        <li>Python/li>
+        <li>Matlab</li>
+        <li>Code Composer</li>
+        <li>Xilinx ISE</li>
+        <li>Psim</li>
+         </ul>
+    </section>
+    <section class="icon-title toggle-title">
+      <div class="hexagon-icon">
+        <i class="fa fa-gamepad"></i>
+      </div>
+      <h3>Hobbies</h3>
+      <a href="javascript:void(0)" class="do-toggle"><i class="fa fa-chevron-down"></i></a>
+    </section>
+    <section class="info-content">
+      <ul class="list-skills">
+        <li>Futebol</li>
+        <li>Corrida</li>
+        <li>Video Game</li>
+        <li>Leitura</li>
+        </ul>
+    </section>  
+  </section>
+  <section id="right-side" class="large-8 medium-7 small-12 left" data-equalizer-watch>
+    <section class="icon-title toggle-title">
+      <div class="hexagon-icon">
+        <i class="fa fa-briefcase"></i>
+      </div>
+      <h3>Experiência com Pesquisas</h3>
+      <a href="javascript:void(0)" class="do-toggle"><i class="fa fa-chevron-down"></i></a>
+    </section>
+    <section class="info-content">
+      <ul class="list-experience">
+        <li><label>FURB - Projeto de Pesquisa <span>/ 2011 - 2013 </span></label>
+          <p>
+            <strong>Bolsista de Pesquisa (Graduação):</strong> Estudo e implementação de técnicas de detecção e de contorno de falhas em conversores estáticos CA-CA bidirecionais do tipo matriciais :
+               Este projeto buscará gerar conhecimento científico e tecnológico que permita identificar, analisar, projetar e implementar técnicas de contorno às falhas de falta de fases em conversores 
+              CA-CA diretos de freqüência matriciais aplicados no acionamento de motores de indução. Para tal serão estudadas, as principais falhas por falta de alimentação e/ou de perda conexões dos terminais do motor,
+               quando este estiver sendo acionado por topologias de conversores estáticos de potência do tipo matriciais.
+               Esta pesquisa estará focada na implementação de conversores matriciais para o acionamento de motores de indução, robustos às falhas de faltas de fases, sejam no sistema de alimentação destes, sejam nas conexões 
+              entre o conversor e o motor sendo acionado. O conhecimento sobre os comportamentos do conversor após a ocorrência de falhas é importante do ponto de vista da confiabilidade do sistema de proteção, projeto e controle tolerantes a falhas. 
+              Bem como, abordar qualitativa e quantitativamente os tipos de falhas importantes, com destaque para as falhas em circuito aberto e as falhas de curto-circuito. Outros aspectos relevantes ao projeto de um conversor matricial serão abordados
+               com o objetivo de aperfeiçoar o desempenho do conversor matricial frente às topologias em duplo estágio convencionalmente utilizadas. 
+          </p>
+        </li>
+                    <li><label>FURB - Projeto de Pesquisa <span>/ 2013 - 2014</span></label>
+          <p>
+            <strong>Bolsista de Pesquisa (Graduação):</strong> Sistema de geração de energia solar  fotovoltaica a sistemas de bombeamento de água: Estudo e implementação de um sistema de bombeamento da água da chuva, captada e armazenada para o reaproveitamento 
+              e consumo em locais que não necessitam de água potável, como: descargas sanitárias, irrigações, lavagens, entre outras. O sistema funcionará de forma autônoma com o uso de células fotovoltaicas FV, para geração de energia elétrica necessária para o acionamento da moto-bomba elétrica.
+          </p>
+        </li>
+                 <li><label>FURB - Projeto de Pesquisa <span>/ 2012 - 2015</span></label>
+          <p>
+            <strong>Bolsista de Pesquisa (Graduação/Mestrado):</strong> Estudo, análise e implementação de transformadores eletrônicos em sistemas monofásico - trifásico de distribuição de energia elétrica: O Projeto de P&D CELESC/ FURB Nº 5697-2110/2011, iniciado em 27/08/2012, com duração prevista até 26/08/2015 tem por objetivos estudar, analisar e construir conversores estáticos de potência 
+              que sirvam como uma interface flexível de conexão entre o consumidor (carga) e o sistema rural de distribuição de energia elétrica da Celesc Distribuição S/A, âmbito do projeto, tendo como principal característica alimentação monofásica e tensão de linha 
+              de 13,8 kV eficazes. Na literatura, os circuitos com conversores estáticos como interface de conexão em sistemas de distribuição, veem sendo chamados de transformadores eletrônicos, o seu uso no interfaceamento de sistemas CA-CA tem como objetivos principais 
+              diminuir o peso e o volume da estrutura, aumento da eficiência e da versatilidade na transformação e adequação de tensões e correntes, bem como, aumentar o rendimento da conversão.
+          </p>
+        </li>
+ 
+     
+      </ul>
+    </section>
+    <section class="icon-title toggle-title">
+      <div class="hexagon-icon">
+        <i class="fa fa-graduation-cap"></i>
+      </div>
+      <h3>Educação</h3>
+      <a href="javascript:void(0)" class="do-toggle"><i class="fa fa-chevron-down"></i></a>
+    </section>
+    <section class="info-content">
+      <ul class="list-experience">
+        <li>
+          <label> Graduação em Engenharia Elétrica <span>/FURB 2009 -  2014 </span></label>
+
+          <p>
+            <strong>Centro de Ciência Tecnológico, Blumenau | SC</strong>
+          </p>
+        </li>
+        <li>
+          <label>Mestrado em Engenharia Elétrica - Eletrônica de Potência  <span>/FURB 2014 -  2016 </span></label>
+
+          <p>
+            <strong>Centro de Ciência Tecnológico, Blumenau | SC</strong>
+          </p>
+        </li>
+          <li>
+          <label>Doutorado em Engenharia Elétrica - Eletrônica de Potência <span>/UFSC 2016 - (em andamento) </span></label>
+
+          <p>
+            <strong>Centro Tecnológico de ciências, Florianópolis | SC</strong>
+          </p>
+        </li>
+     </ul>
+    </section>
+  </section>
+</main>
+
+
+ 
+         <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+			  
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.3.1/trianglify.min.js'></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.min.js'></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation/foundation.equalizer.js'></script>
+
+
+ <script src="{% static 'js/index.js' %}"></script>
+
+</body>
+
+
+ 
+
+     
+  
+    
+
+
+
+
+
+
+{% endblock content %}
+

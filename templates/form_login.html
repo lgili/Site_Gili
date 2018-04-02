@@ -1,0 +1,90 @@
+﻿{% extends "base.html" %}
+
+
+
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+ {% block content %}
+
+
+  
+    {% block style %} 
+
+	
+		<link rel="icon" href="https://www.gili.io/static/img/logo.png">
+	
+	    	<title>{{ title }}</title>   	
+	
+		<link rel="stylesheet" type="text/css" href="{% static 'css_login/style.css' %}" /> 
+
+
+  {% endblock style %}
+
+	
+
+<body>
+
+<form method="post" novalidate>
+  {% csrf_token %}
+<span style="display:block; height: 65"></span>
+      <div class="text-center mb-4">
+        <img class="mb-4" src="https://www.gili.io/static/img/logo.png" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Don't have an account?</h1>
+        <p>Sign up to to have access!</a></p>
+ </div>
+  {% for hidden_field in form.hidden_fields %}
+    {{ hidden_field }}
+  {% endfor %}
+
+  {% if form.non_field_errors %}
+    <div class="alert alert-danger" role="alert">
+      {% for error in form.non_field_errors %}
+        {{ error }}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% for field in form.visible_fields %}
+    <div class="form-label-group">
+     
+
+      {% if form.is_bound %}
+        {% if field.errors %}
+          {% render_field field class="form-control is-invalid" %}
+          {% for error in field.errors %}
+            <div class="invalid-feedback">
+              {{ error }}
+            </div>
+          {% endfor %}
+        {% else %}
+          {% render_field field class="form-control is-valid" %}
+        {% endif %}
+      {% else %}
+        {% render_field field class="form-control" %}
+
+      {% endif %}
+ <label for="{{ field.id_for_label }}">{{ field.id_for_label }}</label>
+
+
+      {% if field.help_text %}
+        <small class="form-text text-muted">{{ field.help_text }}</small>
+      {% endif %}
+    </div>
+  {% endfor %}
+
+  
+<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+<p class="mt-5 mb-3 text-muted text-center">&copy; 2018</p>
+</form>
+
+</body>
+
+{% endblock content %}
+
+
+
+
+
+
+

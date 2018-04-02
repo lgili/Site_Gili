@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+
+{% load staticfiles %}
+
+
+ {% block content %}
+
+
+<head>
+
+    {% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/CSS_chat.css' %}" />
+
+   
+
+    {% endblock style %}
+
+
+</head>
+
+<body>
+
+
+    <div class="chat">
+        <div class="chat-title">
+            <h1>Gili</h1>
+            <h2>Online</h2>
+            <figure class="avatar">
+                <img src="https://scontent.ffln2-2.fna.fbcdn.net/v/t1.0-9/14390968_559058697635351_8290766296813180258_n.jpg?oh=9a2e016b18bfd6c42a36ce55cdef5904&oe=59FE5B02" /></figure>
+        </div>
+        <div class="messages">
+            <div class="messages-content"></div>
+        </div>
+        <div class="message-box">
+            <textarea type="text" class="message-input" placeholder="Type message..."></textarea>
+            <button type="submit" class="message-submit">Send</button>
+        </div>
+
+    </div>
+    <div class="bg"></div>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js'></script>
+
+
+    <script src="{% static 'js/chat_js.js' %}"></script>
+   
+
+</body>
+{% endblock %}
