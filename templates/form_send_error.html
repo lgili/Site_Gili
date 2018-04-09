@@ -1,0 +1,108 @@
+﻿{% extends "base.html" %}
+
+
+
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+ {% block content %}
+
+
+  
+    {% block style %} 
+
+	
+		<link rel="icon" href="https://www.gili.io/static/img/logo.png">
+	
+	    	<title>{{ title }}</title>   	
+	
+		<link rel="stylesheet" type="text/css" href="{% static 'css_login/style.css' %}" /> 
+
+    
+    
+   
+  {% endblock style %}
+
+	
+
+<body>
+
+
+  
+ 
+             
+ 
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="media-container-column col-lg-8" data-form-type="formoid">
+                    <div data-form-alert="" hidden="">
+                        Thanks for filling out the form!
+                    </div>
+            
+                    <form class="mbr-form" method="post">
+                        {% csrf_token %}
+                        <div class="row row-sm-offset">
+                            <div class="col-md-4 multi-horizontal" data-for="name">
+                                <div class="form-group">
+                                    <label class="form-control-label mbr-fonts-style display-7" for="name-form1-4t">Name</label>
+                                    {{form.name}}
+                                    <!--<input type="text" class="form-control" name="name" data-form-field="Name" required="" id="name-form1-4t">-->
+                                </div>
+                            </div>
+                            <div class="col-md-4 multi-horizontal" data-for="email">
+                                <div class="form-group">
+                                    <label class="form-control-label mbr-fonts-style display-7" for="email-form1-4t">Email</label>
+                                    {{form.from_email}}
+                                    <!--<input type="email" class="form-control" name="email" data-form-field="Email" required="" id="email-form1-4t">-->
+                                </div>
+                            </div>
+                            <div class="col-md-4 multi-horizontal" data-for="subject">
+                                <div class="form-group">
+                                    <label class="form-control-label mbr-fonts-style display-7" for="phone-form1-4t">Subject</label>
+                                    {{form.subject}}
+                                    <!--<input type="tel" class="form-control" name="phone" data-form-field="Phone" id="phone-form1-4t">-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" data-for="message">
+                            <label class="form-control-label mbr-fonts-style display-7" for="message-form1-4t">Message</label>
+                            {{form.message}}
+                            <!--<textarea type="text" class="form-control" name="message" rows="7" data-form-field="Message" id="message-form1-4t"></textarea>-->
+                        </div>
+            
+                        <span class="input-group-btn">
+                            <button href="" type="submit" class="btn btn-primary btn-form display-4">SEND</button>
+                        </span>
+                    </form>
+            </div>
+        </div>
+    </div>
+
+                    
+
+               
+           
+     
+
+     
+       
+
+
+      
+ 
+
+
+      
+ 
+
+
+ </body>
+
+{% endblock content %}
+
+
+
+
+
+
+

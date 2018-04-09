@@ -38,15 +38,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
  # third party
     'crispy_forms',
 #    'markdown_deux',
     'pagedown',
     'widget_tweaks',
+    'django_inlinecss',
+    #'robots',
+   
 
     # local apps
     'comments',
     'posts',
+
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
@@ -148,7 +154,7 @@ MEDIA_ROOT = '/home/lgili/myproject/myproject/media'
 #DJANGO REGISTRATION REDUX SETTINGS
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
-SITE_ID = 1
+SITE_ID = 4
 LOGIN_REDIRECT_URL = '/'
 
 
@@ -158,3 +164,10 @@ EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+
+
+
+
+
+
+

@@ -116,12 +116,55 @@ class UserRegisterForm(forms.ModelForm):
 
 
 
+class form_senderror(forms.Form):
+   from_email = forms.EmailField(widget=forms.EmailInput(
+     attrs={
+         'class': 'form-control',
+         'placeholder': 'Email address',
+         'id' : 'Email address'  ,
+         'label':'Email address',
+          
+     }
+     ))
+   name = forms.CharField(widget=forms.TextInput(
+     attrs={
+         'class': 'form-control',
+         'placeholder': 'Name',
+         'id' : 'Name'   ,
+         'label':'Name',
+          }
+     ))
+   subject = forms.CharField(widget=forms.TextInput(
+     attrs={
+         'class': 'form-control',
+         'placeholder': 'Subject',
+         'id' : 'Subject'   ,
+         'label':'subject',
+          }
+     ))
+   message = forms.CharField(widget=forms.Textarea(
+     attrs={
+         'class': 'form-control',
+         'placeholder': 'messagem',
+         'id' : 'Message'   ,
+         'label':'message',
+         'rows' : '7',
+          }
+     ))
+   #from_email = forms.EmailField(required=True)
+   #name = forms.CharField(required=True)
+   #subject = forms.CharField(required=True)
+   #message = forms.CharField(widget=forms.Textarea, required=True)
 
 
 
-
-
-
+class EmailForm(forms.Form):
+      firstname = forms.CharField(max_length=255)
+      lastname = forms.CharField(max_length=255)
+      email = forms.EmailField()
+      subject = forms.CharField(max_length=255)
+      botcheck = forms.CharField(max_length=5)
+      message = forms.CharField()
 
 
 
