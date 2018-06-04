@@ -44,6 +44,8 @@ def upload_location(instance, filename):
 class Post(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
     title = models.CharField(max_length=120)
+    metatag =  models.CharField(max_length=300, default='metatag')
+    keywords =  models.CharField(max_length=200, default='keywords')
     slug = models.SlugField(unique=True)
     image = models.ImageField(upload_to=upload_location, 
             null=True, 
@@ -115,6 +117,7 @@ def pre_save_post_receiver(sender, instance, *args, **kwargs):
 
 
 pre_save.connect(pre_save_post_receiver, sender=Post)
+
 
 
 

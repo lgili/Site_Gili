@@ -103,14 +103,29 @@ def sendERROR_view(request):
         form = form_senderror(request.POST)
         if form.is_valid():
             
+            name = form.cleaned_data['name']
             subject = form.cleaned_data['subject']
             from_email = form.cleaned_data['from_email']
             message = form.cleaned_data['message']
-            try:
-                send_mail(subject, message, from_email, ['luizcarlosgili@gmail.com'])
-            except BadHeaderError:
+            to_email = "luizcarlosgili@gmail.com"
+             
+        ctx = {
+        'subject': subject,
+        'name': name,
+        'from_email': from_email,
+        'message' : message,
+    }
+
+        html_content = get_template('senderror.html').render(Context(ctx))
+        msg = EmailMessage(subject, html_content, from_email, [to_email])
+        msg.content_subtype = "html"  # Main content is now text/html
+        
+        try:
+            msg.send()
+             #send_mail(subject, message, from_email, ['luizcarlosgili@gmail.com'])
+        except BadHeaderError:
                 return HttpResponse("Invalid header found.")
-            return redirect("/thankyou/")
+        return redirect("/thankyou/")
     return render(request, "form_send_error.html", {"form": form})
 
 

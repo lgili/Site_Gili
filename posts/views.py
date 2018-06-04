@@ -25,6 +25,13 @@ from .forms import PostForm , NameForm
 from .models import Post
 from .utils import get_read_time
 
+from django.http import JsonResponse
+
+
+from .buck import bode_planta_magnitude
+#from .buck import bode_planta_magnitude,bode_planta_fase, bode_controle_fase,bode_controle_magnitude,bode_malha_fechada_fase,bode_malha_fechada_magnitude,bode_malha_fechada_PI_fase,bode_malha_fechada_PI_magnitude
+#from .buck import Cal_PI,RZmap,goLGR_MF, goLGR_MA,step_MF,impulse_MF
+
 def get_name(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
@@ -112,6 +119,7 @@ def post_detail(request, slug=None):
 def post_list(request):
 	today = timezone.now().date()
 	queryset_list = Post.objects.active().order_by("timestamp")
+
 	if request.user.is_staff or request.user.is_superuser:
 		queryset_list = Post.objects.all()
 	
@@ -119,6 +127,7 @@ def post_list(request):
 	if query:
 		queryset_list = queryset_list.filter(
 				Q(title__icontains=query)|
+               # Q(metatag__icontains=query)|
 				Q(content__icontains=query)|
 				Q(user__first_name__icontains=query) |
 				Q(user__last_name__icontains=query)
@@ -141,6 +150,7 @@ def post_list(request):
 		"title": "List",
 		"page_request_var": page_request_var,
 		"today": today,
+        
 	}
 	return render(request, "post_list.html", context)
 
@@ -202,6 +212,163 @@ def about(request):
            'year':datetime.now().year,
         }
     )
-	
 
+
+# def buck(request):
+
+#     return render(
+#         request,
+#         'buck.html',
+#         {
+#             'title':'buck',
+            
+#         }
+#     )
+
+
+def buck(request):
+    if request.method == 'POST':
+        #POST goes here . is_ajax is must to capture ajax requests. Beginner's pit.
+        if request.is_ajax():
+            #Always use get on request.POST. Correct way of querying a QueryDict.
+            kp = request.POST.get('kp')
+            kh = request.POST.get('kh')
+            nc2 = request.POST.get('nc2')
+            nc1 = request.POST.get('nc1')
+            nc0 = request.POST.get('nc0')
+            dc2 = request.POST.get('dc2')
+            dc1 = request.POST.get('dc1')
+            dc0 = request.POST.get('dc0')
+            Phase_Mar = request.POST.get('Phase_Mar')
+            Freq_cruz = request.POST.get('Freq_cruz')
+            
+
+            Ro = request.POST.get('Ro')
+            L = request.POST.get('L')
+            C = request.POST.get('C')
+            Vi = request.POST.get('Vi')
+
+            PI_ON = request.POST.get('PI_ON')
+
+
+            # planta_magnitude = bode_planta_magnitude(Vi,Ro,L,C,kp,kh,nc2,nc1,nc0,dc2,dc1,dc0,Phase_Mar,Freq_cruz)
+            # planta_fase = bode_planta_fase(Vi,Ro,L,C,kp,kh,nc2,nc1,nc0,dc2,dc1,dc0,Phase_Mar,Freq_cruz)
+
+            
+
+            # if(PI_ON):
+            # 	MF_magnitude = bode_malha_fechada_PI_magnitude(Vi,Ro,L,C,kp,kh,nc2,nc1,nc0,dc2,dc1,dc0,Phase_Mar,Freq_cruz)
+            # 	MF_fase = bode_malha_fechada_PI_fase(Vi,Ro,L,C,kp,kh,nc2,nc1,nc0,dc2,dc1,dc0,Phase_Mar,Freq_cruz)
+
+            # else:
+            #    	MF_magnitude = bode_malha_fechada_magnitude(Vi,Ro,L,C,kp,kh,nc2,nc1,nc0,dc2,dc1,dc0,Phase_Mar,Freq_cruz)
+            #    	MF_fase = bode_malha_fechada_fase(Vi,Ro,L,C,kp,kh,nc2,nc1,nc0,dc2,dc1,dc0,Phase_Mar,Freq_cruz)
+
+            # Step = step_MF(Vi,Ro,L,C,kp,kh,nc2,nc1,nc0,dc2,dc1,dc0,Phase_Mar,Freq_cruz)
+            # Impulse = impulse_MF(Vi,Ro,L,C,kp,kh,nc2,nc1,nc0,dc2,dc1,dc0,Phase_Mar,Freq_cruz)
+            # Polos = RZmap(Vi,Ro,L,C,kp,kh,nc2,nc1,nc0,dc2,dc1,dc0,Phase_Mar,Freq_cruz)
+            # LGR_MF = goLGR_MF(Vi,Ro,L,C,kp,kh,nc2,nc1,nc0,dc2,dc1,dc0,Phase_Mar,Freq_cruz)
+            # LGR_MA = goLGR_MA(Vi,Ro,L,C,kp,kh,nc2,nc1,nc0,dc2,dc1,dc0,Phase_Mar,Freq_cruz)
+            
+
+            # Calcula_PI = Cal_PI(Vi,Ro,L,C,kp,kh,nc2,nc1,nc0,dc2,dc1,dc0,Phase_Mar,Freq_cruz)  
+            Step =10
+            planta_magnitude=1
+            planta_fase=2
+            MF_magnitude=3
+            MF_fase=4
+            Impulse=6
+            Polos=9
+            LGR_MF=0
+            LGR_MA=8
+             	
+
+
+
+
+
+            dados ={"planta_magnitude" : planta_magnitude, "planta_fase":planta_fase, "Ro":Vi,"MF_magnitude":MF_magnitude,"MF_fase":MF_fase, "PI_ON":PI_ON,"Step":Step,"Polos":Polos,"LGR_MF":LGR_MF,"LGR_MA":LGR_MA,"Impulse":Impulse}
+            #data = { "kp" : kp,  "kh" : kh, "nc2" : nc2, "nc1" : nc1, "nc0" : nc0,  "dc2" : dc2, "dc1" : dc1, "dc0" : dc0,  nh2 : nh2,
+	        #"nh1" : nh1,  "nh0" : nh0,  "dh2" : dh2,  "dh1" : dh1,  "dh0" : dh0,   }
+            #data = {"email":email , "password" : password}
+            #Returning same data back to browser.It is not possible with Normal submit
+            return JsonResponse(dados, safe=False)
+    #Get goes here
+    return render(request,'buck.html')  
+
+def boost(request):
+
+    return render(
+        request,
+        'boost.html',
+        {
+            'title':'boost',
+            
+        }
+    )
+
+def buck_boost(request):
+
+    return render(
+        request,
+        'buck_boost.html',
+        {
+            'title':'buck_boost',
+            
+        }
+    )
+
+def flyback(request):
+
+    return render(
+        request,
+        'flyback.html',
+        {
+            'title':'flyback',
+            
+        }
+    ) 
+
+def forward(request):
+
+    return render(
+        request,
+        'forward.html',
+        {
+            'title':'forward',
+            
+        }
+    )        
   
+def push_pull(request):
+
+    return render(
+        request,
+        'push_pull.html',
+        {
+            'title':'push_pull',
+            
+        }
+    ) 	
+
+def half_bridge(request):
+
+    return render(
+        request,
+        'half_bridge.html',
+        {
+            'title':'half_bridge',
+            
+        }
+    )  
+
+def full_bridge(request):
+
+    return render(
+        request,
+        'full_bridge.html',
+        {
+            'title':'full_bridge',
+            
+        }
+    )     

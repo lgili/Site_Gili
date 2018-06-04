@@ -12,6 +12,8 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = [
             "title",
+            "metatag",
+            "keywords",
             "content",
             "image",
             "draft",

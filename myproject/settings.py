@@ -39,24 +39,29 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'django.contrib.sitemaps',
+    #'django.contrib.sitemaps',
  # third party
     'crispy_forms',
 #    'markdown_deux',
     'pagedown',
     'widget_tweaks',
     'django_inlinecss',
+    #'jquery_ui',
     #'robots',
-   
+    # 'djangoseo',
 
     # local apps
     'comments',
     'posts',
+    'ccccjs',
 
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 MIDDLEWARE_CLASSES = [
+    'django.middleware.cache.UpdateCacheMiddleware',
+   'django.middleware.common.CommonMiddleware',
+   'django.middleware.cache.FetchFromCacheMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -80,6 +85,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #'django.template.loaders.app_directories.Loader',
             ],
         },
     },
